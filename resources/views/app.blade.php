@@ -12,7 +12,10 @@
 
         <!-- Scripts -->
         @routes
+
         <script>
+            // Needs to be here because of a cors error in chrome
+            // the Ziggy.url is always http instead of https
             Ziggy.url = '{{ env('APP_URL') }}'
         </script>
         @viteReactRefresh
