@@ -13,6 +13,22 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('type')->check("type IN ('individual', 'company')");
+            $table->string('email')->unique();
+            $table->string('phone')->nullable();
+            $table->string('website')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('country')->nullable();
+            $table->string('tax_id')->nullable();
+            $table->string('preferred_currency')->default('EUR');
+            $table->date('customer_since')->nullable();
+            $table->foreignId('account_manager_id')->nullable()->constrained('users');
+            $table->string('status')->default('active')->check("status IN ('active', 'inactive', 'prospect')");
+            $table->text('notes')->nullable();
+            $table->text('custom_fields')->nullable();
             $table->timestamps();
         });
     }
