@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function managedCustomers()
+    {
+        return $this->hasMany(Customer::class, 'account_manager_id');
+    }
 }

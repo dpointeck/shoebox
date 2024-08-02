@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('tax_id')->nullable();
             $table->string('preferred_currency')->default('EUR');
             $table->date('customer_since')->nullable();
-            $table->foreignId('account_manager_id')->nullable()->constrained('users');
+            $table->foreignId('account_manager_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->string('status')->default('active')->check("status IN ('active', 'inactive', 'prospect')");
             $table->text('notes')->nullable();
             $table->text('custom_fields')->nullable();

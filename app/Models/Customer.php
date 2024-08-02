@@ -17,4 +17,9 @@ class Customer extends Model
     {
         return $this->hasMany(Project::class);
     }
+
+    public function accountManager()
+    {
+        return $this->belongsTo(User::class, 'account_manager_id');
+    }
 }
