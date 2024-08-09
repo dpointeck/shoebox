@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('status')->default('pending');
             $table->foreignId('assigned_to')->nullable()->constrained('users');
             $table->timestamps();
+            $table->index('name');
+            $table->index('project_id');
         });
     }
 

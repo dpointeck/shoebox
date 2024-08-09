@@ -30,6 +30,8 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->text('custom_fields')->nullable();
             $table->timestamps();
+            $table->index('email');
+            $table->index('name');
         });
     }
 
